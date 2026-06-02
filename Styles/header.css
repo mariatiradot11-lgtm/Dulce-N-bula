@@ -1,0 +1,196 @@
+/* --- Variables y Estilos Generales --- */
+:root {
+    --nebula: #613887; /* El rosa característico */
+    --negro: hsl(0, 0%, 0%);
+    --blanco: #ffffff;
+    --gris: #333333;
+    --amarillo: #efdc70;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+
+/* --- Header --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nebula);
+    padding: 15px 24px;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    text-decoration: none;
+}
+
+.nav-right {
+    text-decoration:none;
+}
+/* Izquierda: Botón Hamburguesa */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.burger-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.burger-icon span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--negro);
+    border-radius: 2px;
+}
+
+.menu-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--amarillo);
+}
+
+/* Centro: Logo */
+.nav-center .logo {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--amarillo);
+    font-family: 'Fjalla One', sans-serif;
+    font-style: normal;
+}
+
+/* Derecha: Botón de Ordenar */
+.btn-order {
+    background-color: var(--amarillo);
+    color: var(--nebula);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-order:hover {
+    transform: scale(1.03);
+}
+
+/* --- Menú Lateral (Sidebar) --- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Escondido por defecto a la izquierda */
+    width: 320px;
+    height: 100%;
+    background-color: #ce92e5; 
+    z-index: 1000;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    transition: left 0.3s ease-in-out;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cuando se añade esta clase con JS, el menú aparece */
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.btn-login {
+    color: var(--negro);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--negro);
+}
+
+/* Links del menú */
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: var(--negro);
+    font-size: 26px;
+    font-weight: 800; /* Letras gruesas como en el video */
+    transition: color 0.2s;
+}
+
+/* --- Fondo oscuro (Overlay) --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 500;
+    display: none; /* Escondido por defecto */
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* --- Efecto Hover para los enlaces del menú --- */
+.sidebar-links a:hover {
+    color: var(--amarillo); /* El color rosa que usa Crumbl para resaltar */
+}
+
+.btn-login:hover {
+    color: var(--amarillo);
+}
+
+/* --- Adaptabilidad (Responsive) --- */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 15px 16px;
+    }
+    
+    .menu-text {
+        display: none; /* En pantallas muy pequeñas esconde la palabra "Menú" y deja solo las líneas */
+    }
+    
+    .nav-center .logo {
+        font-size: 26px;
+    }
+    
+    .btn-order {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+    
+    .sidebar {
+        width: 85%; /* Ocupa casi toda la pantalla en celulares */
+    }
+}

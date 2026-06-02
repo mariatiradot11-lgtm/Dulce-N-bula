@@ -1,0 +1,183 @@
+.main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.P-container{
+display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide la pantalla en dos columnas iguales */
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(135deg, #ffff85ec 45%, #ffff8cab 45%); 
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.C-container{
+      display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide la pantalla en dos columnas iguales */
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(135deg, #804595 45%, #e6abffab 45%); 
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+/* 2. Contenedor Principal (Escritorio por defecto) */
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide la pantalla en dos columnas iguales */
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(135deg, #723232 45%, #f4e0d3 45%); 
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* 3. Sección de la Imagen */
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+    transform: rotate(-6deg);
+    filter: drop-shadow(10px 15px 25px rgba(0,0,0,0.15));
+}
+
+/* 4. Sección de Texto e Información */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem;
+}
+
+.badge {
+    background-color: #fbe3eb;
+    color: #000000;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.info-section h1 {
+    font-size: clamp(2.5rem, 4vw, 4rem); /* Tamaño fluido según el monitor */
+    font-weight: 900;
+    line-height: 1.1;
+    color: #000000;
+    margin-bottom: 1.5rem;
+}
+
+.info-section p {
+    font-size: 1.05rem;
+    color: #333333;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* 5. Botones */
+.buttons-container {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.Fondo {
+    height: auto;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #000000;
+    border: 1.5px solid #000000;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+
+/* Tablets y Pantallas Medianas (Menos de 992px) */
+@media (max-width: 992px) {
+    body {
+        padding: 10px;
+    }
+
+    .image-section img {
+        max-width: 280px;
+    }
+
+    .buttons-container {
+        flex-direction: column; /* Los botones se apilan uno sobre otro */
+        gap: 0.8rem;
+    }
+
+    .btn {
+        width: 100%; /* Botones a lo ancho completo de la pantalla del celular */
+    }
+}
+
+/* Móviles (Menos de 600px) */
+@media (max-width: 600px) {
+    .hero-container,
+    .P-container,
+    .C-container {
+        grid-template-columns: 1fr; /* pasar a una columna para que la imagen quede arriba y el texto abajo */
+    }
+
+    .image-section {
+        padding: 1rem;
+    }
+
+    .image-section img {
+        width: 100%;
+        max-width: 90%;
+        transform: rotate(-3deg);
+    }
+
+    .info-section {
+        padding: 1.5rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info-section h1 {
+        font-size: 2rem;
+    }
+
+    .info-section p {
+        max-width: 100%;
+    }
+}
